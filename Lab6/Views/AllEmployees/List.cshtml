@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Lab6.Models.Employees>
+
+<h2 style="display: flex; justify-content: center;">User List</h2>
+<form asp-controller="Search" asp-action="ShowSearch" method="get">
+    <div class="form-group" style="display: flex; justify-content: flex-start; gap: 10px;">
+        
+        <input type="text" name="lastName" class="form-control" style="width: 200px;" placeholder="Search by Last Name"/>
+        <button type="submit" style="background-color: #006666; color: white; border-radius: 5px; border:0" > Search</button>
+    </div>
+</form>
+<div style="display: flex; justify-content: flex-end; gap: 10px;">
+    <a asp-controller="AddNewEmployee" asp-action="Create" class="btn btn-success" >Add New User</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+                    <tr id="employee-@employee.Id">
+                        <td>
+                            <span class="text" id="firstName-text-@employee.Id">@employee.FirstName</span>
+                            <input type="text" id="firstName-input-@employee.Id" class="form-control" value="@employee.FirstName" style="display:none;" />
+                        </td>
+                        <td>
+                            <span class="text" id="lastName-text-@employee.Id">@employee.LastName</span>
+                            <input type="text" id="lastName-input-@employee.Id" class="form-control" value="@employee.LastName" style="display:none;" />
+                        </td>
+                        <td>
+                            <span class="text" id="email-text-@employee.Id">@employee.Email</span>
+                            <input type="text" id="email-input-@employee.Id" class="form-control" value="@employee.Email" style="display:none;" />
+                        </td>
+                        <td>
+                            <span class="text" id="date-text-@employee.Id">@employee.DateTime</span>
+                            <input type="text" id="date-input-@employee.Id" class="form-control" value="@employee.DateTime" style="display:none;" />
+                        </td>
+                        <td style="text-align:right;">
+                            <div class="btn-group" role="group">
+                                 <form asp-controller="AllEmployees" asp-action="Delete" method="post">
+                                    <input type="hidden" name="id" value="@employee.Id" />
+                            <button type="submit" style="background-color:#003C2C; color: white; border-radius: 5px; border:0"  onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
+                                </form>
+                                
+                            </div>
+                        </td>
+                    </tr>
+        }
+    </tbody>
+</table>
+
