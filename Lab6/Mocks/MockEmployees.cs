@@ -11,9 +11,9 @@ namespace Lab6.Mocks
        
         private static List<Employees> _employeeList = new List<Employees>
         {
-            new Employees{Id=1,FirstName="Volodya",LastName="Toska", Email="qqq@gmail.com", DateTime="10/2003"},
-            new Employees{Id=2, FirstName="Alex", LastName="Durov",Email="70jj",DateTime="7/2009"},
-            new Employees{Id=3, FirstName="Ann", LastName="Smith",Email="Smithh_8", DateTime="12/2014"}
+            new Employees{Id=1,FirstName="Jane",LastName="Jackson", Email="jayjay@gmail.com", DateTime="11/2003"},
+            new Employees{Id=2, FirstName="Bob", LastName="Smith",Email="bobsmth@gmail.com",DateTime="7/2009"},
+            new Employees{Id=3, FirstName="Oleksandra", LastName="Omelyanenko",Email="alexaom11111@gmail.com", DateTime="12/2014"}
         };
 
      
